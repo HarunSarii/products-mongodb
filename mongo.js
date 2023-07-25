@@ -12,7 +12,7 @@ const createProduct = async (req, res, next) => {
   try {
     await client.connect();
     const db = client.db();
-    const result = db.collection("products").insertOne(newProduct);
+    const result = await db.collection('products').insertOne(newProduct);
   } catch (error) {
     return res.json({ message: "Could not store data." });
   }
